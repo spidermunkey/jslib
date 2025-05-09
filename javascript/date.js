@@ -262,8 +262,10 @@ export function from(since) {
             ago.string = `${ago.years} Years, ${ago.months} Months ${context}`
         else if (ago.months < 1 ) 
             ago.string = `${ago.years} Years ${context}`
+    } else if (months < 12 & months >= 1) {
+        let rounded = ago.months === 1 && days > 0 ? 2 : 1
+        ago.string = `${rounded} ${rounded === 1 ? 'Month' : 'Months'} ${context}`
     }
-
     else if (ago.weeksAgo < 4 && ago.weeksAgo > 2) {
         ago.string = `${ago.weeksAgo} Weeks ${context}`
     }
